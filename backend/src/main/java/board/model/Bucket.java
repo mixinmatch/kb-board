@@ -2,8 +2,8 @@ package board.model;
 
 import java.util.List;
 
-public class Board {
+public class Bucket {
     private long id;
     private String name;
-    private List<Bucket> tasksBuckets;
+    private List<Task> tasks;
 }
