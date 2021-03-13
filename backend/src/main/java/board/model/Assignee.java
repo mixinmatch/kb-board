@@ -1,5 +1,7 @@
 package board.model;
 
+import java.util.Objects;
+
 public class Assignee {
     private long id;
     private String name;
@@ -16,5 +18,18 @@ public class Assignee {
 
     public void setProfileUrl(String profileUrl) {
         this.profileUrl = profileUrl;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Assignee assignee = (Assignee) o;
+        return id == assignee.id && Objects.equals(name, assignee.name) && Objects.equals(profileUrl, assignee.profileUrl);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

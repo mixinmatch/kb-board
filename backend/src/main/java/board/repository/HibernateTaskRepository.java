@@ -1,9 +1,11 @@
 package board.repository;
 
 import board.model.Task;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository("taskRepository")
 public class HibernateTaskRepository implements TasksRepository {
     @Override
     public List<Task> findAll() {
@@ -21,7 +23,7 @@ public class HibernateTaskRepository implements TasksRepository {
     }
 
     @Override
-    public Task createTask(Task t) {
+    public Task createTask() {
         return null;
     }
 }
