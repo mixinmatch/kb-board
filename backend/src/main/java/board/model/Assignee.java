@@ -12,8 +12,16 @@ public class Assignee {
         this.profileUrl = profile;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getProfileUrl() {
+        return profileUrl;
     }
 
     public void setProfileUrl(String profileUrl) {

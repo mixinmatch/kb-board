@@ -14,6 +14,61 @@ public class Task {
     private List<Attachment> attachments;
     private List<Assignee> collaborators;
 
+    public Assignee getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(Assignee assignee) {
+        this.assignee = assignee;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public boolean isCompleted() {
+        return isCompleted;
+    }
+
+    public void setCompleted(boolean completed) {
+        isCompleted = completed;
+    }
+
+    public Date getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(Date deadline) {
+        this.deadline = deadline;
+    }
+
+    public List<Task> getSubtasks() {
+        return subtasks;
+    }
+
+    public void setSubtasks(List<Task> subtasks) {
+        this.subtasks = subtasks;
+    }
+
+    public List<Attachment> getAttachments() {
+        return attachments;
+    }
+
+    public void setAttachments(List<Attachment> attachments) {
+        this.attachments = attachments;
+    }
+
+    public List<Assignee> getCollaborators() {
+        return collaborators;
+    }
+
+    public void setCollaborators(List<Assignee> collaborators) {
+        this.collaborators = collaborators;
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -8,6 +8,21 @@ public class Board {
     private String name;
     private List<Bucket> tasksBuckets;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Bucket> getTasksBuckets() {
+        return tasksBuckets;
+    }
+
+    public void setTasksBuckets(List<Bucket> tasksBuckets) {
+        this.tasksBuckets = tasksBuckets;
+    }
 
     @Override
     public boolean equals(Object o) {

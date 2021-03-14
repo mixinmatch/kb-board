@@ -9,6 +9,7 @@ import java.util.List;
 public class HibernateBoardRepository implements BoardRepository{
     @Override
     public List<Board> findAll() {
+
         return null;
     }
 
