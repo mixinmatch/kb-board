@@ -1,12 +1,24 @@
 package board.model;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
+@Table(name = "Bucket")
 public class Bucket {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "BUCKET_ID")
     private long id;
+
+    @Column(name = "NAME")
     private String name;
-    private List<Task> tasks;
+
+    @OneToMany(mappedBy = "TASKS")
+    private List<Task> tasks = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -17,11 +29,14 @@ public class Bucket {
     }
 
     public List<Task> getTasks() {
-        return tasks;
+        return Collections.unmodifiableList(tasks);
     }
 
-    public void setTasks(List<Task> tasks) {
-        this.tasks = tasks;
+    public void addTask(Task task) {
+        this.tasks.add(task);
+    }
+    public void removeTask(Task task) {
+        this.tasks.remove(task);
     }
 
     @Override

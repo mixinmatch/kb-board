@@ -1,17 +1,41 @@
 package board.model;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
+@Table(name = "TASKS")
 public class Task {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @ManyToOne
+    @JoinTable(name = "ASSIGNEES", joinColumns = {
+            @JoinColumn(name = "ASSIGNEE_ID")
+    })
     private Assignee assignee;
+
+    @Column(name = "DESCRIPTION")
     private String description;
+
+    @Column(name = "COMPLETED")
     private boolean isCompleted;
+
+    @Column(name = "DEADLINE")
     private Date deadline;
-    private List<Task> subtasks;
-    private List<Attachment> attachments;
+
+//    private List<Task> subtasks;
+
+//    private List<Attachment> attachments;
+
+    @ManyToOne
+    @JoinColumn(name = "BUCKET_ID")
+    private Bucket parentBucket;
+
+    @Column(name = "NAME", table="")
     private List<Assignee> collaborators;
 
     public Assignee getAssignee() {
@@ -46,20 +70,28 @@ public class Task {
         this.deadline = deadline;
     }
 
-    public List<Task> getSubtasks() {
-        return subtasks;
+//    public List<Task> getSubtasks() {
+//        return subtasks;
+//    }
+//
+//    public void setSubtasks(List<Task> subtasks) {
+//        this.subtasks = subtasks;
+//    }
+
+//    public List<Attachment> getAttachments() {
+//        return attachments;
+//    }
+//
+//    public void setAttachments(List<Attachment> attachments) {
+//        this.attachments = attachments;
+//    }
+
+    public Bucket getParentBucket() {
+        return parentBucket;
     }
 
-    public void setSubtasks(List<Task> subtasks) {
-        this.subtasks = subtasks;
-    }
-
-    public List<Attachment> getAttachments() {
-        return attachments;
-    }
-
-    public void setAttachments(List<Attachment> attachments) {
-        this.attachments = attachments;
+    public void setParentBucket(Bucket parentBucket) {
+        this.parentBucket = parentBucket;
     }
 
     public List<Assignee> getCollaborators() {
@@ -75,11 +107,11 @@ public class Task {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Task task = (Task) o;
-        return id == task.id && isCompleted == task.isCompleted && Objects.equals(assignee, task.assignee) && Objects.equals(description, task.description) && Objects.equals(deadline, task.deadline) && Objects.equals(subtasks, task.subtasks) && Objects.equals(attachments, task.attachments) && Objects.equals(collaborators, task.collaborators);
+        return id == task.id && isCompleted == task.isCompleted && Objects.equals(assignee, task.assignee) && Objects.equals(description, task.description) && Objects.equals(deadline, task.deadline) /*&& Objects.equals(subtasks, task.subtasks)*/ && /*Objects.equals(attachments, task.attachments) &&*/ Objects.equals(collaborators, task.collaborators);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, assignee, description, isCompleted, deadline, subtasks, attachments, collaborators);
+        return Objects.hash(id, assignee, description, isCompleted, deadline, /*subtasks, attachments,*/ collaborators);
     }
 }

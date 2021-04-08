@@ -32,6 +32,11 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>5.4.29.Final</version>
 		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.19</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

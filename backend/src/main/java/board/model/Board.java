@@ -1,11 +1,20 @@
 package board.model;
 
+import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
+@Table(name = "Board")
 public class Board {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @Column(name = "NAME")
     private String name;
+
+    @OneToMany(mappedBy = "bucket")
     private List<Bucket> tasksBuckets;
 
     public String getName() {

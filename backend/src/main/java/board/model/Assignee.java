@@ -1,11 +1,25 @@
 package board.model;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name = "ASSIGNEES")
 public class Assignee {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ASSIGNEE_ID")
     private long id;
+
+    @Column(name = "NAME")
     private String name;
+
+    @Column(name = "PROFILE_PICTURE")
     private String profileUrl;
+
+
+    public Assignee() {}
 
     public Assignee(String name, String profile) {
         this.name = name;
