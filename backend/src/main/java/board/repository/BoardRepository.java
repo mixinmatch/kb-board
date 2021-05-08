@@ -1,11 +1,12 @@
 package board.repository;
 
 import board.model.Board;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface BoardRepository {
-        public List<Board> findAll();
-        public void removeBoard(Board b);
-        public Board createBoard();
+@Repository
+public interface BoardRepository extends CrudRepository<Board, Long> {
 }

@@ -1,12 +1,10 @@
 package board.repository;
 
 import board.model.Assignee;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
+@Repository
+public interface AssigneeRepository extends CrudRepository<Assignee, Long> {
 
-public interface AssigneeRepository {
-    public List<Assignee> findAll();
-    public Assignee updateAssignee(Assignee a);
-    public void removeAssignee(Assignee a);
-    public Assignee createAssignee(Assignee a);
 }
