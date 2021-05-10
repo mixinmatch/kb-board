@@ -1,6 +1,7 @@
 package board.model;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -18,8 +19,18 @@ public class Assignee {
     @Column(name = "PROFILE_PICTURE")
     private String profileUrl;
 
+    @ManyToMany(mappedBy = "collaborators")
+    private List<Task> tasks;
 
     public Assignee() {}
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
 
     public Assignee(String name, String profile) {
         this.name = name;

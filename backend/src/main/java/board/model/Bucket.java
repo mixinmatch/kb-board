@@ -17,8 +17,19 @@ public class Bucket {
     @Column(name = "NAME")
     private String name;
 
-    @OneToMany(mappedBy = "TASKS")
+    @OneToMany(mappedBy = "parentBucket")
     private List<Task> tasks = new ArrayList<>();
+
+    @ManyToOne
+    private Board parentBoard;
+
+    public Board getParentBoard() {
+        return parentBoard;
+    }
+
+    public void setParentBoard(Board parentBoard) {
+        this.parentBoard = parentBoard;
+    }
 
     public String getName() {
         return name;

@@ -14,7 +14,7 @@ public class Board {
     @Column(name = "NAME")
     private String name;
 
-    @OneToMany(mappedBy = "bucket")
+    @OneToMany(mappedBy = "parentBoard")
     private List<Bucket> tasksBuckets;
 
     public String getName() {

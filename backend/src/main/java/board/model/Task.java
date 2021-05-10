@@ -32,10 +32,13 @@ public class Task {
 //    private List<Attachment> attachments;
 
     @ManyToOne
-    @JoinColumn(name = "BUCKET_ID")
     private Bucket parentBucket;
 
-    @Column(name = "NAME", table="")
+    @ManyToMany
+    @JoinTable(
+            name = "ASSIGNEES",
+            joinColumns = @JoinColumn(name = "ASSIGNEE_ID")
+    )
     private List<Assignee> collaborators;
 
     public Assignee getAssignee() {
