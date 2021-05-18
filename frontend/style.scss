@@ -1,0 +1,29 @@
+$dotColorAdmin: blue;
+$dotColorDev: red;
+$dotColorDev2: orange;
+
+%dot {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-admin {
+    @extend %dot;
+    background-color: $dotColorAdmin;
+}
+
+.dot-dev {
+    @extend %dot;
+    background-color: $dotColorDev;
+}
+.dot-dev-2 {
+    @extend %dot;
+    background-color: $dotColorDev2;
+}
+
+.name {
+    color: red;
+}
+
