@@ -3,27 +3,64 @@ $dotColorDev: red;
 $dotColorDev2: orange;
 
 %dot {
-    height: 20px;
-    width: 20px;
+    height: 10px;
+    width: 10px;
     border-radius: 50%;
-    display: inline-block;
 }
 
-.dot-admin {
+.dot-box {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.dot-supervisor {
     @extend %dot;
     background-color: $dotColorAdmin;
 }
 
-.dot-dev {
+.dot-developer {
     @extend %dot;
     background-color: $dotColorDev;
 }
-.dot-dev-2 {
+.dot-scrum {
     @extend %dot;
     background-color: $dotColorDev2;
 }
 
-.name {
-    color: red;
+.card {
+    color: #4d4d4d;
+    border-bottom: 0.1rem solid #ccc;
+    border-left: 0.1rem solid #ccc;
+    margin-bottom: 0.2rem;
+    border-radius: 5px;
+    line-height: 1.1;
+    word-wrap: break-word;
+    cursor: pointer;
+    display: flex;
+    padding-bottom: 10px;
+    padding-top: 10px;
+
 }
 
+$font: Helvetica, sans-serif;
+.name-font {
+    font: $font;
+    size: 15px;
+    font-weight: bold;
+}
+
+.role-font {
+    font: $font;
+    size: 13px;
+}
+
+.header {
+    font-family: $font;
+    font-weight: bold;
+    font-size: 36px;
+    color: #4d4d4d;
+
+    padding-bottom: 10px;
+}

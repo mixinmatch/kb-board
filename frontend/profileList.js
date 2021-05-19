@@ -1,12 +1,14 @@
-// var React = require('react');
-// var ReactDOM = require('react-dom');
-// import './dist/output.css'
-// function ProfileList() {
-//     return (
-//         <>
-//             <div className="header">
-//                 Profiles
-//             </div>
-//         </>
-//     )
-// }
+var React = require('react');
+var ReactDOM = require('react-dom');
+
+const ProfileList = (props) => (
+    <>
+        <div className="header">
+            Profiles
+        </div>
+    </>
+
+)
+
+
+export default ProfileList
