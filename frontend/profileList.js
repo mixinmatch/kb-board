@@ -7,7 +7,6 @@ const ProfileList = (props) => (
             Profiles
         </div>
     </>
-
 )
 
 
