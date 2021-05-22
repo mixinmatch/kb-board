@@ -84,9 +84,10 @@ $font: Helvetica, sans-serif;
     border-radius: 5px;
     text-overflow: ellipsis;
 
-    @include box-size(75px, 220px);
+    @include box-size(70px, 220px);
 
     padding: 10px;
+    box-shadow: 5px 7px 10px #e0dbdbbd;
 }
 
 .task-card:hover {
@@ -97,6 +98,7 @@ $font: Helvetica, sans-serif;
     font: $font;
     padding-left: 5px;
     padding-right: 5px;
+    color: #000;
 }
 
  .assignee-circle {
