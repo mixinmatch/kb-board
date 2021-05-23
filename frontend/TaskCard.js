@@ -6,33 +6,30 @@ class TaskCard extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = {taskCompleted : false}
+        this.state = { taskCompleted: false }
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick = function(e) {
+    handleClick = function (e) {
         this.setState(state => ({
-            taskCompleted: !this.state.taskCompleted 
+            taskCompleted: !this.state.taskCompleted
         }))
     }
 
-
     render() {
-        const taskTitle = this.props.title
-        const assignees = this.props.assignees
+        const task = this.props
         const dueDate = "1 jan"
 
         return (
             <>
-            <div className="task-card" style={{opacity: this.state.taskCompleted ? 0.5 : 1}}>
-                <TaskCompletedButton taskCompleted={this.state.taskCompleted} clickHandler={this.handleClick}/>
-                <span className="task-title">{taskTitle}</span>
-                <div style={{paddingTop: "15px", display: "flex"}}>
-                <AssigneeList data={assignees}/>
-                <Date date={dueDate} pastDeadline={false}/>
+                <div className="task-card" style={{ opacity: this.state.taskCompleted ? 0.5 : 1 }}>
+                    <TaskCompletedButton taskCompleted={this.state.taskCompleted} clickHandler={this.handleClick} />
+                    <span className="task-title">{task.title}</span>
+                    <div style={{ paddingTop: "15px", display: "flex" }}>
+                        <AssigneeList data={task.assignees} />
+                        <Date date={dueDate} pastDeadline={false} />
+                    </div>
                 </div>
-
-            </div>
             </>
         )
     }
@@ -41,7 +38,7 @@ class TaskCard extends React.Component {
 export default TaskCard
 
 const Date = (props) => (
-    <div style={{color : props.pastDeadline ? "red" : "grey", marginTop:"auto", marginBottom: "auto", paddingLeft: "5px"}}>
+    <div style={{ color: props.pastDeadline ? "red" : "grey", marginTop: "auto", marginBottom: "auto", paddingLeft: "5px" }}>
         {props.date}
     </div>
 )
@@ -49,7 +46,7 @@ const Date = (props) => (
 class TaskCompletedButton extends React.Component {
     render() {
         let image = ""
-        if(this.props.taskCompleted) {
+        if (this.props.taskCompleted) {
             image = "complete.png"
         } else {
             image = "completeNo.png"
@@ -57,7 +54,7 @@ class TaskCompletedButton extends React.Component {
         const pathIcon = "./assets/" + image
 
         return (
-                <img onClick={this.props.clickHandler} src={pathIcon} style={{height: "20px", width: "20px", marginTop:"auto", marginBottom:"auto"}}/>
+            <img onClick={this.props.clickHandler} src={pathIcon} style={{ height: "20px", width: "20px", marginTop: "auto", marginBottom: "auto" }} />
         )
     }
 }

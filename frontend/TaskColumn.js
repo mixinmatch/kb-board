@@ -1,19 +1,17 @@
 var React = require('react');
-
+import TaskCard from './TaskCard'
 
 class TaskColumn extends React.Component {
     render() {
-        const columnName = this.props.columnName
-        const tasks = this.props.tasks
+        const column = this.props.column
         return (
             <>
             <div>
-                {columnName} 
+                {column.name} 
             </div>
-            <div>
-                {/* {this.props.map(t => <Task/>)} */}
-            </div>
-            </>
+            
+            {this.props.tasks.map((t, index) => <TaskCard key={t.id} {...t} index={index}/>)}
+        </>
         )
     }
 }

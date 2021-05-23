@@ -1,9 +1,12 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 import AssigneeList from './AssigneeList'
+import Board from './Board';
 import ProfileCard from './profileCard'
 import ProfileList from './profileList'
 import TaskCard from './TaskCard'
+import TaskColumn from './TaskColumn'
+
 const testProfile = [
     {
         name: "Cavan Foster",
@@ -36,27 +39,7 @@ class App extends React.Component {
 
 }
 
-// ReactDOM.render(
-//     <App/>,
-//     document.getElementById('root')
-// );
-const testData = [
-    {
-        name: "He",
-        color: "magenta"
-    }, 
-// {
-//     name: "Jack",
-//     color: "green"
-// },
-// {
-//     name: "Fey",
-//     color: "purple"
-
-// }
-]
 ReactDOM.render(
-    <TaskCard title="test Task name" assignees={testData}/>,
-    //  <AssigneeList data={testData}/>,
+    <Board />,
     document.getElementById('root')
 );
