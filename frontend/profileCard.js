@@ -11,14 +11,8 @@ class ProfileCard extends React.Component {
                     <div className={"dot-" + this.props.role.toLowerCase()}>
                     </div>
                 </div>
-
-                <div>
-                    <div>
-                        {this.props.name}
-                    </div>
-                    <div>
-                        {this.props.role}
-                    </div>
+                <div style={{color: 'white'}}>
+                    {this.props.name}
                 </div>
             </div>
         )

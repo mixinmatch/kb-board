@@ -4,15 +4,17 @@ class BoardOptions extends React.Component {
 
     render() {
         return (
-            <div>
-                <AddBoardButton />
+            <div className="board-options">
+                <ExtraMenuButton/>
             </div>
         )
     }
 }
 
-const AddBoardButton = (props) => (
-    <button>Add new board</button>
+const ExtraMenuButton = (props) => (
+    <button className="options-button">
+        <img src="./assets/tripledots.png" height="50%" />
+    </button>
 )
 
 export default BoardOptions

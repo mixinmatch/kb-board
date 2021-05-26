@@ -4,7 +4,8 @@ import AssigneeList from './AssigneeList'
 import Board from './Board';
 import ProfileCard from './profileCard'
 import ProfileList from './profileList'
-import Column from './Column'
+import BoardOptions from './BoardOptions';
+import BoardHeader from './BoardHeader';
 
 const testProfile = [
     {
@@ -27,14 +28,17 @@ const testProfile = [
 class App extends React.Component {
 
     render() {
-        return(
-        <>
-        <ProfileList {...testProfile}/>
-        {/* TODO add the cards to ProfileList
-            <ProfileCard name={testProfile[0].name} role={testProfile[0].role}/>
-            <ProfileCard name={testProfile[1].name} role={testProfile[1].role}/>
-            <ProfileCard name={testProfile[2].name} role={testProfile[2].role}/> */}
-        </>
+        return (
+            <>
+                <div style={{ display: 'flex' , flexDirection: 'row'}}>
+                    <ProfileList profiles={testProfile}/>
+                    <div style={{width: "-webkit-fill-available"}}>
+                        <BoardHeader />
+                        <BoardOptions />
+                        <Board />
+                    </div>
+                </div>
+            </>
         )
     }
 
@@ -42,6 +46,6 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-    <Board />,
+    <App />,
     document.getElementById('root')
 );

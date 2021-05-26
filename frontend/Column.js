@@ -18,7 +18,7 @@ function Column({tasks, column, setTasks}) {
 
     return (
         <div className="column" ref={drop}>
-            <h2 className="columnHeader">{column.name}</h2>
+            <div className="columnHeader">{column.name}</div>
             {tasks.map((t, index) => <TaskCard key={t.id} index={index} task={t} setTasks={setTasks}/>)}
         </div>
     )
