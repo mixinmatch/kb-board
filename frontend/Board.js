@@ -32,26 +32,27 @@ const taskData = [
 ]
 
 const columnsData = [
-    { name: "test column", id: "33" },
-    { name: "test column2", id: "34" }
+    { name: "test column", id: 33 },
+    { name: "test column2", id: 34 }
 ]
 
-const fetchColumnTasks = () => {
-
-    let res = []
-    for(let column of columnsData) {
-        res.push([column, taskData.filter(t => t.columnId == column.id)])
-    }
-
-    return res
-}
-
 function Board() {
-    let columnTasks = fetchColumnTasks()
+    const [tasks, setTasks] = React.useState(taskData)
+
+    const tasksFilteredByColumnId = (() => {
+        let res = []
+
+        for(let column of columnsData) {
+            let tasksFiltered = tasks.filter(t => t.columnId === column.id)
+            res = [...res, <Column key={column.id} column={columnsData.find(c => c.id === column.id)} tasks={tasksFiltered} setTasks={setTasks}/>]
+        }
+        return res
+    })()
+
     return (
         <DndProvider backend={HTML5Backend}>
             <div className="container">
-                {columnTasks.map(o => <Column key={o[0].id} column={o[0]} tasks={o[1]}/>)}
+                {tasksFilteredByColumnId}
             </div>
         </DndProvider>
     )
