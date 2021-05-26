@@ -13,7 +13,6 @@ class BoardOptions extends React.Component {
 
 const ExtraMenuButton = (props) => (
     <button className="options-button">
-        <img src="./assets/tripledots.png" height="50%" />
     </button>
 )
 

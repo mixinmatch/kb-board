@@ -143,6 +143,8 @@ $font: "Crimson Pro", sans-serif;
     margin-bottom: 5px;
     box-shadow: 0px 5px 3px #e0dbdbbd;
     border-top: 1px solid lightgrey;
+
+    padding-right: 30px; 
 }
 
 .board-banner {
@@ -157,6 +159,10 @@ $font: "Crimson Pro", sans-serif;
     @include box-size(30px, 30px);
 }
 
+.options-button {
+    @extend %base-options-button;
+    background-image: url('./assets/tripledots32.png');
+}
 .options-button:hover {
     cursor: pointer;
 }
