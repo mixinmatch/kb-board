@@ -151,7 +151,7 @@ $font: "Crimson Pro", sans-serif;
     height: 150px;
 }
 
-.options-button {
+%base-options-button {
     background-color: rgba(255, 255, 255, 0.822);
     border-style: hidden;
     border-radius: 5px;
@@ -163,9 +163,37 @@ $font: "Crimson Pro", sans-serif;
     @extend %base-options-button;
     background-image: url('./assets/tripledots32.png');
 }
+
+.column-options-button-triple-dots {
+    @extend %base-options-button;
+    width: 30px;
+    height: 30px;
+    background: url('./assets/tripledots32.png');
+}
+.column-options-button-plus {
+    @extend %base-options-button;
+    width: 30px;
+    height: 30px;
+    background: url('./assets/plus.svg');
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position-y: 6px;
+    background-position-x: 6px;
+}
+
+
+
 .options-button:hover {
     cursor: pointer;
 }
+.column-options-button-plus:active,
+.column-options-button-triple-dots:active,
 .options-button:active {
     opacity: 0.3;
+}
+
+.columnHeaderContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
