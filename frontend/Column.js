@@ -4,7 +4,7 @@ import { useDrop } from 'react-dnd'
 import { ItemTypes } from './Constants'
 import ColumnOptions from './ColumnOptions'
 
-function Column({ tasks, column, setTasks }) {
+function Column({ tasks, column, setTasks, setColumns }) {
 
     const [{ canDrop, isOver }, drop] = useDrop(
         {
@@ -21,7 +21,7 @@ function Column({ tasks, column, setTasks }) {
         <div className="column" ref={drop}>
             <div className="columnHeaderContainer">
                 <div className="columnHeader">{column.name}</div>
-                <ColumnOptions/>
+                <ColumnOptions columnId={column.id} setTasks={setTasks} setColumns={setColumns}/>
             </div>
             {tasks.map((t, index) => <TaskCard key={t.id} index={index} task={t} setTasks={setTasks} />)}
         </div>
