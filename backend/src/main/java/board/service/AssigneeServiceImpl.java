@@ -1,7 +1,7 @@
 package board.service;
 
-import board.model.Assignee;
 import board.repository.AssigneeRepository;
+import board.model.Assignee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
