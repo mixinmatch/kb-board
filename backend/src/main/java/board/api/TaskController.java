@@ -22,6 +22,7 @@ public class TaskController {
         taskServiceRepository.save(board);
         return board;
     }
+
     @PutMapping("/board/{id}/task/{tid}")
     public Task updateTask(Task task) throws ElementMissingNameException {
         if(task == null)

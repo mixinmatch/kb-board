@@ -1,5 +1,7 @@
 package board.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
@@ -14,8 +16,13 @@ public class Board {
     @Column(name = "NAME")
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "parentBoard")
     private List<Bucket> tasksBuckets;
+
+    public long getId() {
+        return id;
+    }
 
     public String getName() {
         return name;

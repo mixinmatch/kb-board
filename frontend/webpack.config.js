@@ -3,6 +3,10 @@ const path = require('path')
 module.exports = {
   entry: './App.js',
   mode: 'development',
+ experiments: {
+  topLevelAwait: true
+
+ },
   module: {
     rules: [
       {

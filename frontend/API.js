@@ -22,9 +22,32 @@ export const createNewTask = async () => {
 // function updateTask(recentTask){}
 // function deleteTask(task){}
 
-// function createNewColumn(){
-    
-// }
+export const createNewColumn = async (id) => {
+    const path = `${testServer}/board/${id}/column/new`
+    const resp = await fetch(path, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    const column = await resp.json()
+    return column
+}
+
+export const createNewBoard = async () => {
+    const path = `${testServer}/board/new`
+    const resp = await fetch(path, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    const board = await resp.json()
+
+    return board
+}
 // function updateColumn(recentColumn){}
 // function deleteColumn(column){}
 

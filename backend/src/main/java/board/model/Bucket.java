@@ -23,6 +23,10 @@ public class Bucket {
     @ManyToOne
     private Board parentBoard;
 
+    public long getId() {
+        return id;
+    }
+
     public Board getParentBoard() {
         return parentBoard;
     }
