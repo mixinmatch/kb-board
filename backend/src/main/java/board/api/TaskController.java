@@ -5,6 +5,7 @@ import board.model.Exception.ElementMissingNameException;
 import board.model.Task;
 import board.service.TaskServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +15,8 @@ public class TaskController {
     @Autowired
     private TaskServiceImpl taskServiceRepository;
 
-    @PostMapping("/task/new")
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping(value = "/task/new", produces = MediaType.APPLICATION_JSON_VALUE)
     public Task createTask() {
         Task board = new Task();
         taskServiceRepository.save(board);

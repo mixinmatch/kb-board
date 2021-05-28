@@ -1,3 +1,4 @@
-*.class
+backend/target/classes/
 */node_modules
 dist/
+.gitignore

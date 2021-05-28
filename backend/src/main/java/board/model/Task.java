@@ -41,6 +41,10 @@ public class Task {
     )
     private List<Assignee> collaborators;
 
+    public long getId() {
+        return id;
+    }
+
     public Assignee getAssignee() {
         return assignee;
     }
@@ -116,5 +120,18 @@ public class Task {
     @Override
     public int hashCode() {
         return Objects.hash(id, assignee, description, isCompleted, deadline, /*subtasks, attachments,*/ collaborators);
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", assignee=" + assignee +
+                ", description='" + description + '\'' +
+                ", isCompleted=" + isCompleted +
+                ", deadline=" + deadline +
+                ", parentBucket=" + parentBucket +
+                ", collaborators=" + collaborators +
+                '}';
     }
 }
