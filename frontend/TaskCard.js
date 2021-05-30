@@ -3,12 +3,13 @@ var ReactDOM = require('react-dom');
 import AssigneeList from './AssigneeList'
 import { ItemTypes } from './Constants'
 import { useDrag } from 'react-dnd'
+import { EditTaskDialog } from './EditTaskDialog'
 
 function TaskCard({ task, setTasks }) {
     const [taskCompleted, setTaskCompleted] = React.useState(false)
+    const [popup, setPopup] = React.useState(false)
 
     const handleClick = () => { setTaskCompleted(!taskCompleted) }
-    const dueDate = "1 jan"
 
     const { id, columnId } = { ...task }
 
@@ -35,15 +36,34 @@ function TaskCard({ task, setTasks }) {
         })
     }))
 
+    const clickCardHandler = () => {
+        setPopup(
+            prevState => ({
+                popup: !popup
+            })
+        )
+    }
+
+    const changedTaskHandler = (savedTask) => {
+        setTasks(prevState => {
+            return prevState.map(t => {
+                return t.id === savedTask.id ? savedTask : t
+            }
+            )
+        })
+    }
+
+
     return (
         <div className="task-card" style={{ opacity: (taskCompleted || isDragging) ? 0.5 : 1 }}
             ref={drag}>
             <TaskCompletedButton taskCompleted={taskCompleted} clickHandler={handleClick} />
-            <span className="task-title">{task.title}</span>
-            <div style={{ paddingTop: "15px", display: "flex" }}>
+            <span className="task-title" onClick={clickCardHandler}>{task.title}</span>
+            <div style={{ paddingTop: "15px", display: "flex" }} onClick={clickCardHandler}>
                 <AssigneeList data={task.assignees} />
-                <Date date={dueDate} pastDeadline={false} />
+                <Date date={task.dueDate} pastDeadline={false} />
             </div>
+            {popup ? <EditTaskDialog task={task} changedTaskHandler={changedTaskHandler} setPopup={setPopup} /> : null}
         </div>
     )
 

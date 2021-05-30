@@ -44,33 +44,37 @@ const testProfile = [
 const taskData = [
     new Task({
         id: 1,
-        title: "test1",
+        title: "Task 1",
+        description: "Create a new board",
         assignees: [{ name: "jack", id: 3 }],
         columnId: 33
     }),
     new Task({
         id: 2,
-        title: "test2",
+        title: "Task 2",
+        description: "Update new board",
         assignees: [{ name: "evans", id: 5 }],
         columnId: 33
     }),
     new Task({
         id: 3,
-        title: "test3",
+        title: "Task 3",
+        description: "Revise tasks",
         assignees: [{ name: "mike", id: 8 }],
-        columnId: 33
+        columnId: 33,
     }),
     new Task({
         id: 4,
-        title: "test1",
+        title: "Task 4",
+        description: "Submit the project to senior developer",
         assignees: [{ name: "jack", id: 3 }],
         columnId: 34
     }),
 ]
 
 const columnsData = [
-    new MColumn({ name: "test column", id: 33 }),
-    new MColumn({ name: "test column2", id: 34 })
+    new MColumn({ name: "Undecided", id: 33 }),
+    new MColumn({ name: "Todo", id: 34 })
 ]
 
 function App(props) {

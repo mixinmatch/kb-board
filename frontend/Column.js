@@ -17,6 +17,10 @@ function Column({ tasks, column, setTasks, setColumns }) {
         }
     )
 
+    const headerChangeHandler = () => {
+        console.log("test")
+    }
+
     return (
         <div className="column" ref={drop}>
             <div className="columnHeaderContainer">

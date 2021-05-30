@@ -23,7 +23,6 @@ const ExtraMenuButton = (props) => {
 
     const addNewColumnHandler = async () => {
         let newColumn = await createNewColumn(props.board.id)
-        console.log(newColumn)
         props.setColumns(
             prevState => {
                 let newModelColumn = new MColumn({id: newColumn.id, name: 'untitled column'})

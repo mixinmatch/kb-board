@@ -4,5 +4,7 @@ export default class Task {
         this.title= obj.title || "";
         this.assignees= obj.assignees || [];
         this.columnId = obj.columnId || -1;
+        this.description = obj.description || '';
+        this.dueDate = obj.dueDate || 'Jan 01'
     }
 } 
