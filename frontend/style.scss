@@ -98,7 +98,7 @@ $font: "Crimson Pro", sans-serif;
  .assignee-circle {
     height: 25px;
     width: 25px;
-    border-radius: 50%;
+    border-radius: 25%;
 
     color: #fff; 
     background-color: magenta; //TODO make this as variable
@@ -110,6 +110,9 @@ $font: "Crimson Pro", sans-serif;
     border-width: 0.5px;
 
     margin-right: 2px;
+}
+.assignee-circle span {
+    vertical-align: sub;
 }
 .assignee-circle:hover {
     cursor: pointer;
@@ -133,6 +136,8 @@ $font: "Crimson Pro", sans-serif;
     font-size: 25px;
     padding-bottom: 10px;
     font-family: $font;
+
+    cursor: pointer;
 }
 
 .board-options {
@@ -237,7 +242,7 @@ $font: "Crimson Pro", sans-serif;
     resize: none;
 
     font-family: $font;
-    font-weight: 17px;
+    font-size: 18px;
 }
 .task-dialog-date-input {
     border-style: none;
@@ -263,4 +268,20 @@ $font: "Crimson Pro", sans-serif;
     width: 50px;
     background-repeat: no-repeat;
     background-position-y: 13px;
+}
+
+.task-dialog-assignees {
+    margin-left: 25px;
+}
+
+.column-edit-dialog-edit-name {
+    padding-left: 25px;
+}
+.column-edit-dialog-edit-name-font {
+    font-family: $font;
+    font-size: 25px;
+}
+.column-edit-dialog-name-input {
+    font-size:18px;
+    font-family: $font;
 }

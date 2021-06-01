@@ -1,4 +1,6 @@
 var React = require('react');
+import Assignee from './Assignee';
+import AssigneeList from './AssigneeList';
 import Task from './model/Task';
 import './style.scss'
 
@@ -49,6 +51,9 @@ export const EditTaskDialog = (props) => {
                     <input type="date" className="task-dialog-date-input" value={dueDate} onChange={onDateChangeHandler} />
                 </div>
                 <textarea onChange={onDescChangeHandler} value={description} className="task-dialog-description-input" placeholder='Description of the task' />
+                <div className="task-dialog-assignees">
+                    <AssigneeList data={props.task.assignees}  />
+                </div>
             </div>
         </div>
     )

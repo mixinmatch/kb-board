@@ -47,6 +47,7 @@ const taskData = [
         title: "Task 1",
         description: "Create a new board",
         assignees: [{ name: "jack", id: 3 }],
+        dueDate: '2021-05-03',
         columnId: 33
     }),
     new Task({
@@ -54,6 +55,7 @@ const taskData = [
         title: "Task 2",
         description: "Update new board",
         assignees: [{ name: "evans", id: 5 }],
+        dueDate: '2021-07-03',
         columnId: 33
     }),
     new Task({
@@ -61,6 +63,7 @@ const taskData = [
         title: "Task 3",
         description: "Revise tasks",
         assignees: [{ name: "mike", id: 8 }],
+        dueDate: '2021-04-03',
         columnId: 33,
     }),
     new Task({
@@ -68,6 +71,7 @@ const taskData = [
         title: "Task 4",
         description: "Submit the project to senior developer",
         assignees: [{ name: "jack", id: 3 }],
+        dueDate: '2021-05-07',
         columnId: 34
     }),
 ]

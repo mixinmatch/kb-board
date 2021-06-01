@@ -3,6 +3,7 @@ import TaskCard from './TaskCard'
 import { useDrop } from 'react-dnd'
 import { ItemTypes } from './Constants'
 import ColumnOptions from './ColumnOptions'
+import {EditColumnDialog} from './EditColumnDialog'
 
 function Column({ tasks, column, setTasks, setColumns }) {
 
@@ -16,19 +17,31 @@ function Column({ tasks, column, setTasks, setColumns }) {
             })
         }
     )
+    const [popup, setPopup] = React.useState(false)
 
-    const headerChangeHandler = () => {
-        console.log("test")
+    const closePopup = () => {
+        setPopup(false)
+    }
+
+    const updateBoardColumn = (newColumn) => {
+        setColumns(prevState => {
+            return prevState.map(t => {
+                return t.id === newColumn.id ? newColumn : t
+            })
+        })
     }
 
     return (
+        <>
         <div className="column" ref={drop}>
             <div className="columnHeaderContainer">
-                <div className="columnHeader">{column.name}</div>
+                <div className="columnHeader" onClick={() => {setPopup({popup: !popup})} }>{column.name}</div>
                 <ColumnOptions columnId={column.id} setTasks={setTasks} setColumns={setColumns}/>
             </div>
             {tasks.map((t, index) => <TaskCard key={t.id} index={index} task={t} setTasks={setTasks} />)}
         </div>
+        {popup ? <EditColumnDialog column={column} closePopup={closePopup} updateBoardColumn={updateBoardColumn}/> : null}
+        </>
     )
 
 }
