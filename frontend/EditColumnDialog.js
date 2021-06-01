@@ -22,10 +22,10 @@ export const EditColumnDialog = (props) => {
     return (
         <div className="edit-task-dialog">
             <div className="edit-dialog-inner">
-                <div className="task-dialog-close" onClick={onExitChangeHandler} style={{ marginLeft: '665px' }}></div>
+                <div className="task-dialog-close" onClick={onExitChangeHandler} style={{float:'right'}}></div>
                 <div className="column-edit-dialog-edit-name">
                     <span className="column-edit-dialog-edit-name-font">Enter new name for the column.</span>
-                    <div>
+                    <div style={{paddingTop: '10px'}}>
                         <input type="text" onChange={onNameChangeHandler} className="column-edit-dialog-name-input" />
                     </div>
                 </div>
