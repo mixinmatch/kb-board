@@ -23,14 +23,23 @@ public class TaskController {
         return board;
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping("/board/{id}/task/{tid}")
-    public Task updateTask(Task task) throws ElementMissingNameException {
-        if(task == null)
+    public Task updateTask(@PathVariable long id,
+                           @PathVariable long tid,
+                           @RequestBody Task task) throws ElementMissingNameException, BoardNotFoundException {
+        if(task == null || tid < 0)
             throw new ElementMissingNameException();
 
+        if(id < 0)
+            throw new BoardNotFoundException(String.valueOf(id));
+
         taskServiceRepository.save(task);
+
         return task;
     }
+
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/board/{id}/tasks")
     public List<Task> getBoard(@PathVariable long id) throws BoardNotFoundException {
         List<Task> tasks = taskServiceRepository.findAll();

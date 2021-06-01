@@ -19,8 +19,22 @@ export const createNewTask = async () => {
 }
 
 
-// function updateTask(recentTask){}
-// function deleteTask(task){}
+export const updateTask = async (boardId, recentTask) => {
+    const path = `${testServer}/board/${boardId}/task/${recentTask.id}`
+    const resp = await fetch(path, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(recentTask)
+    })
+    const task = await resp.json()
+
+    return task
+}
+
+// export const deleteTask = async (task) => {}
 
 export const createNewColumn = async (id) => {
     const path = `${testServer}/board/${id}/column/new`
@@ -48,9 +62,47 @@ export const createNewBoard = async () => {
 
     return board
 }
-// function updateColumn(recentColumn){}
+export const updateColumn = async (boardId, recentColumn) => {
+    const path = `${testServer}/board/${boardId}/column/${recentColumn.id}`
+    const resp = await fetch(path, {
+        method: 'PUT',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: {
+            name: recentColumn.name
+        }
+    })
+    const column = await resp.json()
+    return column
+}
 // function deleteColumn(column){}
 
-// function getTasks(){}
+export const getTasks = async (boardId) => {
+    const path = `${testServer}/board/${boardId}/tasks`
+    const resp = await fetch(path, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    const tasks = await resp.json()
 
+    return tasks
+}
 
+export const getBoard = async (boardId) => {
+    const path = `${testServer}/board/${boardId}`
+    const resp = await fetch(path, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    const board = await resp.json()
+    console.log(board)
+    return board
+}

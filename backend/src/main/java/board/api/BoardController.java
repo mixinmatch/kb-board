@@ -62,4 +62,22 @@ public class BoardController {
         }
         return bucketServiceRepository.createBucket(b);
     }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PutMapping(value = "/board/{id}/column/{cid}}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Bucket updateBucket(@PathVariable long id,
+                                  @PathVariable long cid,
+                                  @RequestBody String name) {
+        Board b = null;
+        try {
+            b = boardServiceRepository.findById(id);
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+        Bucket bucket = b.getTasksBuckets().stream().filter(bu -> bu.getId() == cid).findFirst().get();
+        bucket.setName(name);
+        boardServiceRepository.save(b);
+
+        return bucket;
+    }
 }

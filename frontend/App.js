@@ -6,80 +6,72 @@ import ProfileCard from './profileCard'
 import ProfileList from './profileList'
 import BoardOptions from './BoardOptions';
 import BoardHeader from './BoardHeader';
-import { createNewBoard } from './API';
+import { createNewColumn, createNewBoard, updateColumn, getTasks, getBoard } from './API';
 import Task from './model/Task';
 import {MColumn} from './model/Column' 
 
-
-
-let boards = async () => {
-    let profiles = []
-    for (let i = 0; i < 3; i++) {
-        let a = await createNewBoard()
-        profiles.push(a)
-    }
-    return profiles
-}
-const boardz = await boards()
-
+let board = await createNewBoard()
+let boardId = board.id
 const testProfile = [
     {
         name: "Cavan Foster",
         role: "Supervisor",
-        id: boardz[0].id
+        id: boardId
     },
     {
         name: "Josefina Thorburn",
         role: "Scrum",
-        id: boardz[1].id
+        id: 999999
     },
     {
         name: "Emerson Nichola",
         role: "Developer",
-        id: boardz[2].id
+        id: 9999
     }
+]
+//Create the columns
+const c1 = await createNewColumn(boardId)
+
+const columnsData = [
+    c1,
 ]
 
 // Big board containing tasks and other yet to be defined options
 const taskData = [
-    new Task({
-        id: 1,
-        title: "Task 1",
-        description: "Create a new board",
-        assignees: [{ name: "jack", id: 3 }],
-        dueDate: '2021-05-03',
-        columnId: 33
-    }),
-    new Task({
-        id: 2,
-        title: "Task 2",
-        description: "Update new board",
-        assignees: [{ name: "evans", id: 5 }],
-        dueDate: '2021-07-03',
-        columnId: 33
-    }),
-    new Task({
-        id: 3,
-        title: "Task 3",
-        description: "Revise tasks",
-        assignees: [{ name: "mike", id: 8 }],
-        dueDate: '2021-04-03',
-        columnId: 33,
-    }),
-    new Task({
-        id: 4,
-        title: "Task 4",
-        description: "Submit the project to senior developer",
-        assignees: [{ name: "jack", id: 3 }],
-        dueDate: '2021-05-07',
-        columnId: 34
-    }),
+    // new Task({
+    //     id: 1,
+    //     title: "Task 1",
+    //     description: "Create a new board",
+    //     assignees: [{ name: "jack", id: 3 }],
+    //     dueDate: '2021-05-03',
+    //     columnId: 33
+    // }),
+    // new Task({
+    //     id: 2,
+    //     title: "Task 2",
+    //     description: "Update new board",
+    //     assignees: [{ name: "evans", id: 5 }],
+    //     dueDate: '2021-07-03',
+    //     columnId: 33
+    // }),
+    // new Task({
+    //     id: 3,
+    //     title: "Task 3",
+    //     description: "Revise tasks",
+    //     assignees: [{ name: "mike", id: 8 }],
+    //     dueDate: '2021-04-03',
+    //     columnId: 33,
+    // }),
+    // new Task({
+    //     id: 4,
+    //     title: "Task 4",
+    //     description: "Submit the project to senior developer",
+    //     assignees: [{ name: "jack", id: 3 }],
+    //     dueDate: '2021-05-07',
+    //     columnId: 34
+    // }),
 ]
 
-const columnsData = [
-    new MColumn({ name: "Undecided", id: 33 }),
-    new MColumn({ name: "Todo", id: 34 })
-]
 
 function App(props) {
     const [tasks, setTasks] = React.useState(taskData)

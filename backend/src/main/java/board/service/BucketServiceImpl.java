@@ -12,6 +12,8 @@ public class BucketServiceImpl implements BucketService {
 
     private BucketRepository repository;
 
+    private String DEFAULT_COL_NAME = "to be named";
+
     @Autowired
     public BucketServiceImpl(BucketRepository repository) {
         this.repository = repository;
@@ -21,6 +23,7 @@ public class BucketServiceImpl implements BucketService {
     @Transactional
     public Bucket createBucket(Board parentBoard) {
         Bucket b = new Bucket();
+        b.setName(DEFAULT_COL_NAME);
         b.setParentBoard(parentBoard);
         return repository.save(b);
     }
